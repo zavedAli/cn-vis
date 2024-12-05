@@ -1,0 +1,78 @@
+[
+  {
+    "name": "physical",
+    "link": "/physical",
+    "hasDrop": true,
+    "topics": [
+      "Bit Transmission",
+      "Cables and Connectors (Fiber Optic, Coaxial, Twisted Pair)",
+      "Network Topologies",
+      "Signal Encoding",
+      "Multiplexing (TDM, FDM)"
+    ]
+  },
+  {
+    "name": "data-link",
+    "link": "/data-link",
+    "hasDrop": true,
+    "topics": [
+      "MAC Addresses",
+      "Ethernet Protocol",
+      "VLANs",
+      "Error Detection (CRC, Parity)",
+      "PPP (Point-to-Point Protocol)"
+    ]
+  },
+  {
+    "name": "network",
+    "link": "/network",
+    "hasDrop": true,
+    "topics": [
+      "IP Addressing (IPv4 and IPv6)",
+      "Subnetting and CIDR",
+      "Routing Protocols (OSPF, RIP, BGP)",
+      "NAT and PAT",
+      "Packet Switching"
+    ]
+  },
+  {
+    "name": "transport",
+    "link": "/transport",
+    "hasDrop": true,
+    "topics": [
+      "TCP vs UDP",
+      "Flow Control",
+      "Error Detection and Recovery",
+      "Port Numbers",
+      "Congestion Control (e.g., TCP Reno, Vegas)"
+    ]
+  },
+  {
+    "name": "session",
+    "link": "/session",
+    "hasDrop": true,
+    "topics": [
+      "Session Establishment, Management, and Termination",
+      "Authentication Protocols",
+      "NetBIOS",
+      "RPC (Remote Procedure Call)"
+    ]
+  },
+  {
+    "name": "presentation",
+    "link": "/presentation",
+    "hasDrop": true,
+    "topics": [
+      "Data Encryption and Decryption",
+      "Data Compression",
+      "Character Encoding (ASCII, Unicode)",
+      "SSL/TLS"
+    ]
+  },
+  {
+    "name": "application",
+    "link": "/application",
+    "hasDrop": true,
+    "topics": ["HTTP/HTTPS", "FTP/SFTP", "SMTP/IMAP/POP3", "DNS", "Telnet/SSH"]
+  }
+]
