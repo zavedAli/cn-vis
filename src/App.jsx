@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SignalVisualization from "./components/SignalVisualization/SignalVisualization";
 import SignalInput from "./components/SignalInput/SignalInput";
 import Navbar from "./components/Navbar/Navbar";
+import DescriptionBox from "./components/DesciptionBox/DescriptionBox";
 import { LuBinary } from "react-icons/lu";
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <SignalInput onInputChange={setInput} />
         {/* Use the value passed from SignalInput */}
         <SignalVisualization input={input} />
+        <DescriptionBox />
       </div>
     </div>
   );

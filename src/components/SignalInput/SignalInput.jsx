@@ -14,10 +14,11 @@ const SignalInput = ({ onInputChange }) => {
   return (
     <input
       type="text"
-      className="ring-1 ring-slate-700 rounded-lg mt-4 px-3 w-60 py-2"
+      className="ring-1 ring-slate-700 rounded-lg mt-4 px-3 w-80 py-2"
       value={input}
+      maxlength="50"
       onChange={handleInputChange}
-      placeholder="Enter only 1s and 0s"
+      placeholder="Enter only 1s and 0s, max length 50"
     />
   );
 };

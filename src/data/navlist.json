@@ -4,7 +4,7 @@
     "link": "/physical",
     "hasDrop": true,
     "topics": [
-      "Bit Transmission",
+      "Manchester encoding ",
       "Cables and Connectors (Fiber Optic, Coaxial, Twisted Pair)",
       "Network Topologies",
       "Signal Encoding",
