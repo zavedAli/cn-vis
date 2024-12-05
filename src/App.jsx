@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Manchester from "./components/SignalVisualization/Manchester";
+import DifferntialManchester from "./components/SignalVisualization/Differentialmanchester";
 import SignalInput from "./components/SignalInput/SignalInput";
 import Navbar from "./components/Navbar/Navbar";
 import DescriptionBox from "./components/DesciptionBox/DescriptionBox";
 import { LuBinary } from "react-icons/lu";
 
 const App = () => {
-  const [input, setInput] = useState("101010"); // State updated by SignalInput
+  const [input, setInput] = useState("100110"); // State updated by SignalInput
 
   return (
     <div className="app flex  flex-col items-center min-w-screen">
@@ -22,7 +23,10 @@ const App = () => {
         <SignalInput onInputChange={setInput} />
         {/* Use the value passed from SignalInput */}
         <Manchester input={input} />
-        <DescriptionBox />
+
+        <DifferntialManchester input={input} />
+        <DescriptionBox encodingType={"manchester"} />
+        <DescriptionBox encodingType={"differential_manchester"} />
       </div>
     </div>
   );

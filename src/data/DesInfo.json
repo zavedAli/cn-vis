@@ -1,0 +1,20 @@
+[
+  {
+    "id": "manchester",
+    "title": "Manchester Encoding",
+    "description": "Manchester Encoding is a method of encoding binary data where each bit is represented by a transition in the signal. This ensures synchronization and makes the data transmission error-resistant.",
+    "highVoltKey": "manchesterHighVolt",
+    "lowVoltKey": "manchesterLowVolt",
+    "highVoltText": "High Voltage when bit is 1",
+    "lowVoltText": "Low Voltage when bit is 0"
+  },
+  {
+    "id": "differential_manchester",
+    "title": "Differential Manchester Encoding",
+    "description": "Differential Manchester Encoding is a method of encoding binary data where transitions represent the bits. The absence or presence of a transition at the clock boundary indicates a 1 or 0, respectively. It offers synchronization and better error resilience compared to standard Manchester encoding.",
+    "highVoltKey": "differentialHighVolt",
+    "lowVoltKey": "differentialLowVolt",
+    "highVoltText": "Transition at clock edge: Indicates Bit 1",
+    "lowVoltText": "No transition at clock edge: Indicates Bit 0"
+  }
+]

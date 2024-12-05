@@ -8,7 +8,7 @@ const SignalVisualization = ({ input }) => {
 
   return (
     <div className="flex flex-col sm:flex-row py-3 px-3 w-[90%] my-10 shadow-lg rounded-lg ring-1 ring-gray-200">
-      <h1 className="flex me-4 my-5 items-center gap-4 w-full sm:w-1/4 justify-center">
+      <h1 className="flex me-4 my-5 items-center h-14 gap-4 w-full sm:w-1/4 justify-center">
         Manchester Encoding
         <span className="scale-150 hidden sm:flex">
           <BsArrowRightCircle />
@@ -23,11 +23,21 @@ const SignalVisualization = ({ input }) => {
           prev = bit;
 
           return (
-            <div key={index} className="flex w-[90%] pb-2 mb-5 sm:mb-0">
+            <div key={index} className="flex w-[100%] pb-2 mb-5 sm:mb-0">
               {/* Display an extra div if the current bit matches the previous one */}
-              {isMatch && <div className="bg-black h-[95%] w-[10%]"></div>}
+              {isMatch && bit === "0" && (
+                <div className="bg-red-600 h-[95%] w-[10%]"></div>
+              )}
+              {isMatch && bit === "1" && (
+                <div className="bg-black h-[95%] w-[10%]"></div>
+              )}
+
               {/* Display the appropriate signal component */}
-              {bit === "1" ? <SignalComponentA /> : <SignalComponentB />}
+              {bit === "1" ? (
+                <SignalComponentA color={"black"} bitSignal={"1"} />
+              ) : (
+                <SignalComponentB color={"red"} bitSignal={"0"} />
+              )}
             </div>
           );
         })}
