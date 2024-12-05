@@ -1,5 +1,5 @@
 import React from "react";
-import SignalA from "./../SignalVisualization/SignalA";
+import SignalA from "../SignalVisualization/Signals/SignalA";
 import HighVolt from "../../assets/symbols/Manchestor/highVolt.png";
 import LowVolt from "../../assets/symbols/Manchestor/lowVolt.png";
 

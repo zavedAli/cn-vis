@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SignalVisualization from "./components/SignalVisualization/SignalVisualization";
+import Manchester from "./components/SignalVisualization/Manchester";
 import SignalInput from "./components/SignalInput/SignalInput";
 import Navbar from "./components/Navbar/Navbar";
 import DescriptionBox from "./components/DesciptionBox/DescriptionBox";
@@ -21,7 +21,7 @@ const App = () => {
         {/* Pass the callback to SignalInput */}
         <SignalInput onInputChange={setInput} />
         {/* Use the value passed from SignalInput */}
-        <SignalVisualization input={input} />
+        <Manchester input={input} />
         <DescriptionBox />
       </div>
     </div>

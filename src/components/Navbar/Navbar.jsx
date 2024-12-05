@@ -3,7 +3,6 @@ import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import navlist from "../../data/navlist.json";
 import { FcWorkflow } from "react-icons/fc";
-import logo from "../../assets/logo/logo.png";
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -24,9 +23,13 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      const navElement = document.querySelector(".Navlist");
-      if (!navElement?.contains(event.target)) {
-        closeDropdown();
+      // Check if we are on a desktop-sized screen
+      if (window.innerWidth >= 1024) {
+        const navElement = document.querySelector(".Navlist");
+        // Close the dropdown only if clicking outside the nav element
+        if (!navElement?.contains(event.target)) {
+          closeDropdown();
+        }
       }
     };
 
@@ -57,21 +60,14 @@ const Navbar = () => {
               }}
             >
               <span>{item.name}</span>
-
-              {activeDropdown === index ? (
-                ""
-              ) : (
-                <span className="group-hover:animate-bounce ">
-                  <FaAngleDown />
-                </span>
-              )}
+              {activeDropdown === index ? "" : <FaAngleDown />}
             </div>
             {activeDropdown === index && item.hasDrop && (
               <div className="dropdown absolute top-full left-0 bg-white shadow-lg rounded mt-2 py-3 w-44 z-20 border border-gray-300">
                 {item.topics.map((topic, idx) => (
                   <div
                     key={idx}
-                    className="dropdown-item py-1 ps-2 text-[14px] pe-1 hover:bg-gray-100 cursor-pointer"
+                    className="dropdown-item py-1 px-2 text-[14px] hover:bg-gray-100 cursor-pointer"
                   >
                     {topic}
                   </div>
@@ -95,17 +91,20 @@ const Navbar = () => {
 
       {/* Mobile dropdown menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden  absolute top-[80px] left-0 w-full bg-white shadow-lg z-30">
+        <div
+          className="lg:hidden absolute top-[80px] left-0 w-full bg-white shadow-lg z-30"
+          onClick={(e) => e.stopPropagation()} // Prevent menu closure when clicking inside
+        >
           {navlist.map((item, index) => (
             <div key={index} className="flex flex-col p-4">
               <div
-                className="flex -110 items-center justify-between cursor-pointer text-lg font-medium"
+                className="flex items-center justify-between cursor-pointer text-lg font-medium"
                 onClick={(e) => {
                   e.stopPropagation(); // Prevent triggering document click
                   toggleDropdown(index);
                 }}
               >
-                <span className="hover:scale-110">{item.name}</span>
+                {item.name}
                 {activeDropdown === index ? <FaAngleUp /> : <FaAngleDown />}
               </div>
               {activeDropdown === index && item.hasDrop && (
@@ -116,7 +115,6 @@ const Navbar = () => {
                       className="dropdown-item py-1 px-2 hover:bg-gray-100 rounded cursor-pointer"
                     >
                       {topic}
-                      <div className="h-[1px] w-[100%] bg-gray-300"></div>
                     </div>
                   ))}
                 </div>
