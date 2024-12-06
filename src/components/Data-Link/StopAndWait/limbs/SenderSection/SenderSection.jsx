@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { IoClose } from "react-icons/io5";
+import { FaCheck } from "react-icons/fa6";
 
 const SenderSection = ({
   frameSize,
@@ -54,29 +56,34 @@ const SenderSection = ({
   };
 
   return (
-    <div className="sender bg-blue-200 rounded-lg p-1 sm:p-4 w-1/2 sm:w-1/4 flex flex-col justify-between">
-      <div className="upper flex h-[80%] justify-between">
-        <div className="input ring-1 ring-white bg-blue-500 text-white text-center p-4 w-[99%] sm:w-[85%] rounded-lg shadow-md">
+    <div className="sender bg-blue-200 rounded-lg p-1 sm:p-2 w-1/2 sm:w-1/4 flex flex-col justify-between">
+      <div className="upper flex h-[80%] justify-between gap-1 sm:gap-3">
+        <div className="input overflow-scroll scrollbar-hide ring-1 ring-white bg-blue-500 text-white text-center p-4 w-[99%] sm:w-[95%] rounded-lg shadow-md">
           {sentFrames.length > 0 ? (
-            <ul className="flex flex-col gap-1">
+            <ul className="flex flex-col gap-3">
               {sentFrames.map((frame, index) => (
                 <span
                   key={index}
-                  className="ring-1 ring-white bg-white text-blue-500 py-1 px-5 rounded-md hover:scale-105 hover:shadow-md transition-all ease-in cursor-pointer"
+                  className="ring-1 justify-between min-h-[50px] text-[12px] ring-white bg-white text-blue-500 py-1 px-5 rounded-md hover:scale-105 hover:shadow-md transition-all ease-in cursor-pointer flex items-center gap-2"
                 >
                   Frame {index + 1}: {frame.data}
+                  {frame.ack === "success" && <FaCheck />}
+                  {frame.ack === "failed" && <IoClose className="scale-110" />}
+                  {frame.ack === "duplicate" && (
+                    <IoClose className="scale-110" />
+                  )}
                 </span>
               ))}
             </ul>
           ) : (
             <span className="ring-1 ring-white py-1 px-5 rounded-md">
-              Receiver Data
+              Sender Data
             </span>
           )}
         </div>
-        <div className="bar bg-gray-100 h-full w-[1%] sm:w-[10%] rounded-md shadow-md"></div>
+        <div className="bar bg-gray-100 h-full w-[1%] sm:w-[5%] rounded-md shadow-md"></div>
       </div>
-      <div className="lower flex flex-col gap-4">
+      <div className="lower  flex flex-col gap-2 w-[100%]">
         <div className="flex gap-2 text-blue-800 font-semibold">
           <div className="flex flex-col w-1/3">
             <label htmlFor="frameSize" className="ps-1">

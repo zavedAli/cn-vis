@@ -13,8 +13,8 @@ const App = () => {
   return (
     <div className="app flex  flex-col items-center min-w-screen ">
       <Navbar />
-      <div className="container  flex-col items-center hidden">
-        <h2 className="flex items-center gap-2 text-center mt-8 text-4xl mb-5 font-semibold">
+      <div className="container hidden flex-col items-center ">
+        <h2 className="flex items-center gap-2 text-center mt-8 text-2xl mb-5 font-semibold">
           Signal Visualizer
           <span className="ring-1 ring-gray-600 rounded-full p-1 text-white bg-slate-600">
             <LuBinary />
@@ -29,7 +29,7 @@ const App = () => {
         <DescriptionBox encodingType={"manchester"} />
         <DescriptionBox encodingType={"differential_manchester"} />
       </div>
-      <div className="container items-center ">
+      <div className="container items-center w-[100%] ">
         <StopAndWait />
       </div>
     </div>

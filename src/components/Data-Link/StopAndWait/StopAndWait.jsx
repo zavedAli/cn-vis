@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SenderSection from "./limbs/SenderSection/SenderSection";
 import MiddleSection from "./limbs/MiddleSection/MiddleSection";
 import ReceiverSection from "./limbs/ReceiverSection/ReceiverSection";
@@ -31,22 +31,33 @@ const StopAndWait = () => {
     setCurrentFrameIndex(sentFrames.length);
   };
 
+  const onAcknowledge = () => {
+    setCountdown(0); // Stop the countdown
+  };
+
   // Update the ack value when no action is taken in the receiver section
-  React.useEffect(() => {
+  useEffect(() => {
+    if (countdown > 0) {
+      const timer = setTimeout(() => {
+        setCountdown((prev) => (prev > 0 ? prev - 1 : 0));
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
     if (countdown === 0 && currentFrameIndex !== null) {
+      console.log("2");
       setSentFrames((prevFrames) => {
         const updatedFrames = [...prevFrames];
-        if (updatedFrames[currentFrameIndex]) {
-          updatedFrames[currentFrameIndex].ack = "failed"; // Set ack to failed if no action was taken
+        if (updatedFrames[currentFrameIndex]?.ack === "pending") {
+          updatedFrames[currentFrameIndex].ack = "failed";
         }
         return updatedFrames;
       });
     }
-  }, [currentFrameIndex]);
+  }, [countdown, currentFrameIndex]);
 
   return (
-    <div className="flex justify-center items-center container text-sm min-h-screen">
-      <div className="p-6 w-[90%] h-[80vh]">
+    <div className="flex w-[100%] justify-center items-center container text-sm min-h-screen">
+      <div className="p-1 m:p-6 w-[100%] sm:w-[80%] h-[80vh]">
         <h1 className="text-center text-3xl font-semibold text-gray-700 mb-6">
           Stop and Wait Protocol
         </h1>
@@ -64,7 +75,7 @@ const StopAndWait = () => {
             setIsSendButtonEnabled={setIsSendButtonEnabled}
             handleSendtoReceiver={handleSend}
           />
-          <MiddleSection />
+          <MiddleSection sentFrames={sentFrames} />
           <ReceiverSection
             countdown={countdown}
             setSentFrames={setSentFrames}
