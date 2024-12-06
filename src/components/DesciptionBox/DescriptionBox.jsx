@@ -12,6 +12,8 @@ const imageMapping = {
   manchesterLowVolt,
   differentialHighVoltA,
   differentialHighVoltB,
+  differentialLowVoltA,
+  differentialLowVoltB,
 };
 
 const DescriptionBox = ({ encodingType }) => {
@@ -23,7 +25,7 @@ const DescriptionBox = ({ encodingType }) => {
 
   return (
     <div>
-      <div className="w-full p-6 flex flex-col items-center">
+      <div className="  flex flex-col items-center bg-slate-100 m-4 rounded-xl py-5">
         <h1 className="text-2xl font-bold mb-4">{encodingData.title}</h1>
         <p className="mb-6 text-center text-gray-600">
           {encodingData.description}
@@ -31,16 +33,43 @@ const DescriptionBox = ({ encodingType }) => {
 
         {/* Signal Visualization */}
         <div className="signal-visualizer flex gap-2 items-center justify-center w-full max-w-4xl border-t-2 border-gray-400 pt-4">
-          <img
-            src={imageMapping[encodingData.highVoltKey]}
-            className="w-20 shadow-md"
-            alt="High Voltage"
-          />
-          <img
-            src={imageMapping[encodingData.lowVoltKey]}
-            className="w-20 shadow-md"
-            alt="Low Voltage"
-          />
+          {encodingData.title === "Manchester Encoding" ? (
+            <>
+              <img
+                src={imageMapping[encodingData.highVoltKey]}
+                className="w-20 shadow-md"
+                alt="High Voltage"
+              />
+              <img
+                src={imageMapping[encodingData.lowVoltKey]}
+                className="w-20 shadow-md"
+                alt="Low Voltage"
+              />
+            </>
+          ) : (
+            <div className=" flex gap-6">
+              <img
+                src={imageMapping[encodingData.highVoltKeyA]}
+                className="w-20 shadow-md"
+                alt="High Voltage"
+              />
+              <img
+                src={imageMapping[encodingData.highVoltKeyB]}
+                className="w-20 shadow-md me-4"
+                alt="Low Voltage"
+              />
+              <img
+                src={imageMapping[encodingData.lowVoltKeyA]}
+                className="w-20 shadow-md ms-4"
+                alt="High Voltage"
+              />
+              <img
+                src={imageMapping[encodingData.lowVoltKeyB]}
+                className="w-20 shadow-md"
+                alt="Low Voltage"
+              />
+            </div>
+          )}
         </div>
 
         {/* Legend */}

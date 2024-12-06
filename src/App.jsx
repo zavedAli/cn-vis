@@ -10,7 +10,7 @@ const App = () => {
   const [input, setInput] = useState("100110"); // State updated by SignalInput
 
   return (
-    <div className="app flex  flex-col items-center min-w-screen">
+    <div className="app flex  flex-col items-center min-w-screen ">
       <Navbar />
       <div className="container flex flex-col items-center">
         <h2 className="flex items-center gap-2 text-center mt-8 text-4xl mb-5 font-semibold">

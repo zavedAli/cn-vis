@@ -12,8 +12,10 @@
     "id": "differential_manchester",
     "title": "Differential Manchester Encoding",
     "description": "Differential Manchester Encoding is a method of encoding binary data where transitions represent the bits. The absence or presence of a transition at the clock boundary indicates a 1 or 0, respectively. It offers synchronization and better error resilience compared to standard Manchester encoding.",
-    "highVoltKey": "differentialHighVolt",
-    "lowVoltKey": "differentialLowVolt",
+    "highVoltKeyA": "differentialHighVoltA",
+    "highVoltKeyB": "differentialHighVoltB",
+    "lowVoltKeyA": "differentialLowVoltA",
+    "lowVoltKeyB": "differentialLowVoltB",
     "highVoltText": "Transition at clock edge: Indicates Bit 1",
     "lowVoltText": "No transition at clock edge: Indicates Bit 0"
   }

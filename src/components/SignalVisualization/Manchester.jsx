@@ -7,7 +7,7 @@ const SignalVisualization = ({ input }) => {
   let prev = null; // To track the previous bit
 
   return (
-    <div className="flex flex-col sm:flex-row py-3 px-3 w-[90%] my-10 shadow-lg rounded-lg ring-1 ring-gray-200">
+    <div className="flex flex-col bg-slate-100 sm:flex-row py-3 px-3 w-[90%] my-10 shadow-lg rounded-lg ring-1 ring-gray-200">
       <h1 className="flex me-4 my-5 items-center h-14 gap-4 w-full sm:w-1/4 justify-center">
         Manchester Encoding
         <span className="scale-150 hidden sm:flex">
