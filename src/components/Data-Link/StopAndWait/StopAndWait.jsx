@@ -57,11 +57,11 @@ const StopAndWait = () => {
 
   return (
     <div className="flex w-[100%] justify-center items-center container text-sm min-h-screen">
-      <div className="p-1 m:p-6 w-[100%] sm:w-[80%] h-[80vh]">
+      <div className="p-1 md:p-6 w-[100%] md:w-[90%] h-[80vh]">
         <h1 className="text-center text-3xl font-semibold text-gray-700 mb-6">
           Stop and Wait Protocol
         </h1>
-        <div className="flex h-full">
+        <div className="flex  h-full w-[100%]">
           <SenderSection
             frameSize={frameSize}
             setFrameSize={setFrameSize}

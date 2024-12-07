@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import navlist from "../../data/navlist.json";
@@ -23,10 +24,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Check if we are on a desktop-sized screen
       if (window.innerWidth >= 1024) {
         const navElement = document.querySelector(".Navlist");
-        // Close the dropdown only if clicking outside the nav element
         if (!navElement?.contains(event.target)) {
           closeDropdown();
         }
@@ -42,6 +41,7 @@ const Navbar = () => {
 
   return (
     <div className="w-full h-[80px] flex justify-between items-center capitalize shadow-lg bg-white z-10 px-10 lg:px-36 relative">
+      {/* Logo */}
       <div className="cursor-pointer group logo flex gap-2 items-center font-semibold text-lg scale-150">
         cn-vis
         <span className="group-hover:animate-spin-once">
@@ -49,28 +49,34 @@ const Navbar = () => {
         </span>
       </div>
 
+      {/* Desktop Navigation */}
       <div className="hidden lg:flex Navlist gap-8">
         {navlist.map((item, index) => (
           <div key={index} className="nav-item relative group text-sm">
+            {/* Dropdown Toggle */}
             <div
               className="flex group items-center gap-2 cursor-pointer text-md"
               onClick={(e) => {
-                e.stopPropagation(); // Prevent triggering document click
+                e.stopPropagation();
                 toggleDropdown(index);
               }}
             >
               <span>{item.name}</span>
-              {activeDropdown === index ? "" : <FaAngleDown />}
+              {activeDropdown === index ? <FaAngleUp /> : <FaAngleDown />}
             </div>
+
+            {/* Dropdown Menu */}
             {activeDropdown === index && item.hasDrop && (
-              <div className="dropdown absolute top-full left-0 bg-white shadow-lg rounded mt-2 py-3 w-44 z-20 border border-gray-300">
-                {item.topics.map((topic, idx) => (
-                  <div
+              <div className="dropdown flex flex-col absolute top-full left-0 bg-white shadow-lg rounded mt-2 py-3 w-44 z-20 border border-gray-300">
+                {Object.values(item.topics).map((topic, idx) => (
+                  <Link
                     key={idx}
+                    to={`/${topic.link}`} // Use the link from navlist.json
                     className="dropdown-item py-1 px-2 text-[14px] hover:bg-gray-100 cursor-pointer"
+                    onClick={closeDropdown} // Close dropdown on click
                   >
-                    {topic}
-                  </div>
+                    {topic.name}
+                  </Link>
                 ))}
               </div>
             )}
@@ -78,44 +84,49 @@ const Navbar = () => {
         ))}
       </div>
 
-      {/* Mobile menu button */}
+      {/* Mobile Menu Button */}
       <div
         className="lg:hidden flex items-center cursor-pointer"
         onClick={(e) => {
-          e.stopPropagation(); // Prevent triggering document click
+          e.stopPropagation();
           toggleMobileMenu();
         }}
       >
         <GiHamburgerMenu className="text-2xl" />
       </div>
 
-      {/* Mobile dropdown menu */}
+      {/* Mobile Dropdown Menu */}
       {isMobileMenuOpen && (
         <div
           className="lg:hidden absolute top-[80px] left-0 w-full bg-white shadow-lg z-30"
-          onClick={(e) => e.stopPropagation()} // Prevent menu closure when clicking inside
+          onClick={(e) => e.stopPropagation()} // Prevent menu closure on inside click
         >
           {navlist.map((item, index) => (
             <div key={index} className="flex flex-col p-4">
+              {/* Mobile Dropdown Toggle */}
               <div
                 className="flex items-center justify-between cursor-pointer text-lg font-medium"
                 onClick={(e) => {
-                  e.stopPropagation(); // Prevent triggering document click
+                  e.stopPropagation();
                   toggleDropdown(index);
                 }}
               >
                 {item.name}
                 {activeDropdown === index ? <FaAngleUp /> : <FaAngleDown />}
               </div>
+
+              {/* Mobile Dropdown Menu */}
               {activeDropdown === index && item.hasDrop && (
-                <div className="dropdown mt-2 p-2">
-                  {item.topics.map((topic, idx) => (
-                    <div
+                <div className="dropdown mt-2 p-2 flex flex-col ">
+                  {Object.values(item.topics).map((topic, idx) => (
+                    <Link
                       key={idx}
-                      className="dropdown-item py-1 px-2 hover:bg-gray-100 rounded cursor-pointer"
+                      to={`/${topic.link}`}
+                      className="dropdown-item py-1 px-2  hover:bg-gray-100 rounded cursor-pointer"
+                      onClick={closeDropdown} // Close dropdown on click
                     >
-                      {topic}
-                    </div>
+                      {topic.name}
+                    </Link>
                   ))}
                 </div>
               )}

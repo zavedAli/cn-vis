@@ -56,7 +56,7 @@ const SenderSection = ({
   };
 
   return (
-    <div className="sender bg-blue-200 rounded-lg p-1 sm:p-2 w-1/2 sm:w-1/4 flex flex-col justify-between">
+    <div className="sender bg-blue-200 rounded-lg p-1 sm:p-2 w-1/2 md:w-1/4  flex flex-col justify-between">
       <div className="upper flex h-[80%] justify-between gap-1 sm:gap-3">
         <div className="input overflow-scroll scrollbar-hide ring-1 ring-white bg-blue-500 text-white text-center p-4 w-[99%] sm:w-[95%] rounded-lg shadow-md">
           {sentFrames.length > 0 ? (
@@ -84,7 +84,7 @@ const SenderSection = ({
         <div className="bar bg-gray-100 h-full w-[1%] sm:w-[5%] rounded-md shadow-md"></div>
       </div>
       <div className="lower  flex flex-col gap-2 w-[100%]">
-        <div className="flex gap-2 text-blue-800 font-semibold">
+        <div className="flex gap-1 text-blue-800 font-semibold">
           <div className="flex flex-col w-1/3">
             <label htmlFor="frameSize" className="ps-1">
               Frame Size

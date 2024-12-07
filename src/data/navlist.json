@@ -1,20 +1,30 @@
 [
   {
     "name": "physical",
-    "link": "/physical",
     "hasDrop": true,
-    "topics": ["Manchester encoding ", "Differential Manchester encoding "]
+    "topics": {
+      "manchesterE": {
+        "name": "Manchester Encoding",
+        "link": "physical/manchesterE"
+      },
+      "DmanchesterE": {
+        "name": "Diffrential Manchester Encoding",
+        "link": "physical/DmanchesterE"
+      }
+    }
   },
   {
     "name": "data-link",
-    "link": "/data-link",
     "hasDrop": true,
-    "topics": [
-      "MAC Addresses",
-      "Ethernet Protocol",
-      "VLANs",
-      "Error Detection (CRC, Parity)",
-      "PPP (Point-to-Point Protocol)"
-    ]
+    "topics": {
+      "StopAndWait": {
+        "name": "Stop and Wait",
+        "link": "dataLink/stopAndWait"
+      },
+      "SlidingWindow": {
+        "name": "Sliding Window",
+        "link": "dataLink/slidingWindow"
+      }
+    }
   }
 ]

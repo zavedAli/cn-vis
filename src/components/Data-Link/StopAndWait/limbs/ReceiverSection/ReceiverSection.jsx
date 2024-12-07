@@ -48,7 +48,7 @@ const ReceiverSection = ({
   }, [countdown, currentFrameIndex, setSentFrames]);
 
   return (
-    <div className="receiver bg-green-200 rounded-lg p-1 sm:p-2 w-1/2 sm:w-1/4 flex flex-col justify-between">
+    <div className="receiver bg-green-200 rounded-lg p-1 sm:p-2 w-1/2 md:w-1/4  flex flex-col justify-between">
       <div className="upper flex h-[80%] items-center gap-1 sm:gap-3">
         <div className="bar bg-gray-100 h-full w-[1%] sm:w-[5%] rounded-md shadow-md"></div>
         <div className="overflow-scroll input ring-1 scrollbar-hide ring-white h-full bg-green-500 text-white text-center p-4 w-[99%] sm:w-[95%] rounded-lg shadow-md">
@@ -114,7 +114,7 @@ const ReceiverSection = ({
           Success
         </button>
       </div>
-      {countdown > 0 && !hideCounter && (
+      {countdown > 0 && (
         <div className="text-center mt-4 text-xl font-bold text-gray-800">
           {countdown} seconds remaining
         </div>

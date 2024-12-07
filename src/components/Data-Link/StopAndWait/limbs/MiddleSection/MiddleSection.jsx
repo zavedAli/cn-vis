@@ -3,8 +3,8 @@ import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 const MiddleSection = ({ sentFrames }) => {
   return (
-    <div className="middle hidden bg-gray-300 rounded-lg mx-6 sm:flex justify-center w-1/3 sm:w-2/4">
-      <span className="text-gray-600 text-xl font-medium bg-white w-[100%] py-2 ring-1 ring-gray-500 rounded-md ">
+    <div className="middle hidden rounded-lg mx-6 md:flex justify-center w-1/3 md:w-2/4 ">
+      <span className="text-gray-600 text-xl h-[80%] font-medium bg-white w-[100%] py-2 ring-1 ring-gray-500 rounded-md overflow-scroll scrollbar-hide">
         {sentFrames.map((frame, index) => (
           <div
             key={index}
