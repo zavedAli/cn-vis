@@ -85,11 +85,13 @@ const StopAndWait = () => {
             setCountdown={setCountdown}
           />
         </div>
+
         {/* Sent Frames Display */}
         <div className="mt-6 bg-gray-100 rounded-lg p-4 shadow-md">
-          <h2 className="text-lg font-semibold text-gray-700 mb-4">
-            Sent Frames Logs
+          <h2 className="text-lg font-semibold text-gray-700 mb-4 flex justify-between">
+            Sent Frames Log
           </h2>
+
           <ul className="list-disc pl-6 text-gray-600">
             {sentFrames.map((frame, index) => (
               <li key={index}>

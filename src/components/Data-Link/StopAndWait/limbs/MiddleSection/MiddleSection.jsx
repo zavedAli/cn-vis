@@ -3,7 +3,7 @@ import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 const MiddleSection = ({ sentFrames }) => {
   return (
-    <div className="middle hidden rounded-lg mx-6 md:flex justify-center w-1/3 md:w-2/4 ">
+    <div className="middle hidden rounded-lg mx-6 md:flex flex-col justify-center w-1/3 md:w-2/4 ">
       <span className="text-gray-600 text-xl h-[80%] font-medium bg-white w-[100%] py-2 ring-1 ring-gray-500 rounded-md overflow-scroll scrollbar-hide">
         {sentFrames.map((frame, index) => (
           <div
@@ -28,6 +28,22 @@ const MiddleSection = ({ sentFrames }) => {
           </div>
         ))}
       </span>
+      <div className="flex flex-col gap-1 text-sm h-[20%] mt-4 shadow-lg p-3 bg-white capitalize">
+        <h3 className="text-red-500">
+          Congested:{" "}
+          <span className="text-gray-700">
+            node is busy and can not receive frame at the moment{" "}
+          </span>
+        </h3>
+        <h3 className="text-yellow-500">
+          Duplicate:{" "}
+          <span className="text-gray-700">Frame is already received</span>
+        </h3>
+        <h3 className="text-green-500">
+          Success:{" "}
+          <span className="text-gray-700">Node Can Accept the Frame</span>
+        </h3>
+      </div>
     </div>
   );
 };

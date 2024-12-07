@@ -89,7 +89,7 @@ const ReceiverSection = ({
           onClick={() => handleButtonClick("failed")}
           disabled={countdown <= 0}
         >
-          Failed
+          Congested
         </button>
         <button
           className={`w-1/3 bg-yellow-500 text-white py-2 rounded-lg ${
